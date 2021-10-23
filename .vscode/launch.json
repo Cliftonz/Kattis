@@ -1,14 +1,30 @@
 {
     "configurations": [
+    
+        
         {
             "type": "java",
-            "name": "CodeLens (Launch) - Babelfish",
+            "name": "Debug (Attach)",
+            "request": "attach",
+            "hostName": "localhost",
+            "port": "<debug port of the debuggee>"
+        },
+    {
+        "type": "java",
+        "name": "Debug (Launch) - Current File",
+        "request": "launch",
+        "mainClass": "${file}"
+    },
+
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Cetvrta",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
             "stopOnEntry": false,
-            "mainClass": "Babelfish",
-            "args": ""
+            "mainClass": "Cetvrta",
+            "args": "5 5 5 7 7 5 "
         },
         {
             "type": "java",
