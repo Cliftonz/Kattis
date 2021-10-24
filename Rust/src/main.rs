@@ -1,9 +1,9 @@
+mod bela;
 
+use bela::bela;
 
 fn main() {
 
-    println!("Hello");
-
-    println!("Penis");
+    bela();
 
 }

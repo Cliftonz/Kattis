@@ -17,15 +17,18 @@ struct Node {
     male_children: IndexMap<Node>,
     female_children: IndexMap<Node>,
     birth_year: String,
-    successor_number: i32
+    successor_number: i32,
+    access_map: Option<HashMap<String, Vec<String>>>
 }
 
 impl Node{
     //fn default() -> Self {}
-    pub fn insert(&mut self, new_node: &Node, parent_list:Vec<String> ){
+    pub fn insert(&mut self, new_node: &Node ){
+        if new_node.gender == 'F' {
 
-
-
+        }else {
+            
+        }
     }
 
     pub fn find_successor(&mut self, number:i32 ) -> &Node{
@@ -61,9 +64,11 @@ pub(crate) fn happy_and_unhappy_numbers() {
         name: "ELIZABETH_II",
         gender: 'F',
         parent: None,
-        children: Vec::new(),
+        male_children: IndexMap::new(),
+        female_children: IndexMap::new(),
         birth_year: queen_birth_year,
-        successor_number: 0
+        successor_number: 0,
+        access_map: HashMap::new(),
     };
 
     for i in 0..number_of_people {
@@ -81,12 +86,12 @@ pub(crate) fn happy_and_unhappy_numbers() {
             name: inputs[0] ,
             gender: inputs[2],
             parent: None,
-            children: Vec::new(),
+            male_children: IndexMap::new(),
+            female_children: IndexMap::new(),
             birth_year: inputs[3].parse::<i32>().unwrap() ,
-            successor_number: 0
-        },inputs[1])
-
-
+            successor_number: 0,
+            access_map: None,
+        },)
     }
 
     // Process successors number in the tree
@@ -99,8 +104,9 @@ pub(crate) fn happy_and_unhappy_numbers() {
 
         let mut num = buffer.trim().parse::<i64>().unwrap();
 
+        let ret = root::find_successor(num);
 
+        println!("{0} {1}", ret.0,ret.1 );
 
     }
-
 }
